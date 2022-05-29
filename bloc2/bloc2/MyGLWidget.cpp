@@ -143,6 +143,7 @@ void MyGLWidget::createBuffers ()
 
 	// Creació del Vertex Array Object per pintar
 	patricio.load("./models/Patricio.obj");
+    calcularParametresPatricio();
 
 	glGenVertexArrays(1, &VAO_Patricio);
 	glBindVertexArray(VAO_Patricio);
@@ -264,6 +265,6 @@ void MyGLWidget::calcularParametresPatricio() {
     }
     alturaPatricio = Pmaxima.y - Pminima.y;
     std::cout << alturaPatricio << std::endl;
-    basePatricio = glm::vec3((Pmaxima.x+Pminima.x)/2.0, Pminima.y, (Pmaxima.z+Pminima.z)/2.0 )
+    basePatricio = glm::vec3((Pmaxima.x+Pminima.x)/2.0, Pminima.y, (Pmaxima.z+Pminima.z)/2.0 );
     
 }
