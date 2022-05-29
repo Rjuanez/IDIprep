@@ -101,7 +101,7 @@ void MyGLWidget::viewTransform ()
 	//glm::mat4 View = glm::lookAt (OBS, VRP, UP);
     glm::mat4 View (1.0f);
     
-    View = glm::translate(View, glm::vec3(-radiEscena*1.5, -radiEscena*1.5, -radiEscena*1.5));
+    View = glm::translate(View, glm::vec3(0, 0, -radiEscena*1.5));
 	glUniformMatrix4fv (viewLoc, 1, GL_FALSE, &View[0][0]);
 }
 
