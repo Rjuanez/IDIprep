@@ -28,7 +28,7 @@ void MyGLWidget::initializeGL ()
 
 void MyGLWidget::ini_camera ()
 {
-    calcularParametresEscena(glm::vec3(-1,-1,-1), glm::vec3(1,1,1))
+    calcularParametresEscena(glm::vec3(-1,-1,-1), glm::vec3(1,1,1));
     
     float diametre = radiEscena * 1.5;
 	FOV = 2 * asin(radiEscena/diametre);
