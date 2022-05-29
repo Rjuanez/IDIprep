@@ -106,7 +106,7 @@ void MyGLWidget::resizeGL (int w, int h)
     float rv = float(w)/float(h);
     
     ra = rv;
-    if (rv < 1) FOV = 2.0 * atan(tan((float)asin(radiEscena/diametre))/rv);
+    if (rv < 1) FOV = 2.0 * atan(tan((float)asin(radiEscena/radiEscena * 1.5;))/rv);
     
     projectTransform();
     
