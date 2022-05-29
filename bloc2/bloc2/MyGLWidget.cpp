@@ -56,6 +56,12 @@ void MyGLWidget::paintGL ()
 
 	// pintem
 	glDrawArrays(GL_TRIANGLES, 0, homer.faces().size()*3);
+    
+    // Activem el VAO per a pintar la caseta
+    glBindVertexArray (VAO_Terra);
+
+    // pintem
+    glDrawArrays(GL_TRIANGLES, 0, 8);
 	
 	glBindVertexArray (0);
 }
