@@ -6,7 +6,7 @@ MyGLWidget::MyGLWidget (QWidget* parent) : QOpenGLWidget(parent), program(NULL)
 {
   setFocusPolicy(Qt::StrongFocus);  // per rebre events de teclat
   scale = 1.0f;
-  rotation = 0.0f
+    rotation = 0.0f;
 }
 
 MyGLWidget::~MyGLWidget ()
