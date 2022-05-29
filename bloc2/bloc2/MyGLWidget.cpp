@@ -102,8 +102,9 @@ void MyGLWidget::viewTransform ()
 void MyGLWidget::resizeGL (int w, int h) 
 {
 	// Aquí anirà el codi que cal fer quan es redimensiona la finestra
-    float rv = w/h;
-    if (rv > ra) ra = rv;
+    float rv = w/float(h);
+    
+    ra = rv;
     
     projectTransform();
     
