@@ -251,7 +251,7 @@ void MyGLWidget::calcularParametresPatricio() {
     Pmaxima.y = patricio.vertices()[1];
     Pmaxima.z = patricio.vertices()[2];
     
-    for (int i = 0; i < patricio.vertices().size(); i += 3) {
+    for (unsigned int i = 0; i < patricio.vertices().size(); i += 3) {
         glm::vec3 aux;
         aux.x = patricio.vertices()[i];
         aux.y = patricio.vertices()[i+1];
