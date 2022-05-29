@@ -143,7 +143,7 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
 	update();
 }
 
-void MyGLWidget::mouseMoveEvent (QMouseEvent *event)
+void MyGLWidget::mouseMoveEvent (QMouseEvent *e)
 {
     
     makeCurrent();
@@ -152,14 +152,16 @@ void MyGLWidget::mouseMoveEvent (QMouseEvent *event)
         int newX = event->x();
         int newY = event->y();
         
-        angleX = (newX - pastX) / 10;
-        angleY = (newY - pastY) / 10;
+        angleX += float((newX - pastX) / 150.0);
+        angleY += float((newY - pastY) / 150.0);
+        
+        pastX = newX;
+        pastY = newY;
         
         viewTransform ();
         update();
         
-        pastX = newX;
-        pastY = newY;
+        
     }
 }
 
