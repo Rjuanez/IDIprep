@@ -152,8 +152,8 @@ void MyGLWidget::mouseMoveEvent (QMouseEvent *event)
         int newX = event->x();
         int newY = event->y();
         
-        angleX = newX - pastX / 100;
-        angleY = newY - pastY / 100;
+        angleX = (newX - pastX) / 100;
+        angleY = (newY - pastY) / 100;
         
         viewTransform ();
         update();
