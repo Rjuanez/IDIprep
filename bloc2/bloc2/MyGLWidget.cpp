@@ -78,6 +78,7 @@ void MyGLWidget::patricioTransform ()
   glm::mat4 transform (1.0f);
   transform = glm::rotate(transform, rotation, glm::vec3(0,1,0) );
   transform = glm::scale(transform, glm::vec3(scale));
+  transform = glm::translate(transform, glm::vec3(-basePatricio));
   glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
 }
 void MyGLWidget::terraTransform ()
