@@ -66,7 +66,7 @@ void MyGLWidget::paintGL ()
     glBindVertexArray (VAO_Terra);
 
     // pintem
-    glDrawArrays(GL_TRIANGLES_STRIP, 0, 4);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	
 	glBindVertexArray (0);
 }
