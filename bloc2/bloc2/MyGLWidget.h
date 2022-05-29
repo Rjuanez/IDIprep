@@ -25,6 +25,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		virtual void resizeGL (int width, int height);
 		// keyPressEvent - Es cridat quan es prem una tecla
 		virtual void keyPressEvent (QKeyEvent *event);
+        virtual void mouseMoveEvent (QMouseEvent *event);
 
 	private:
 		// functions
@@ -56,6 +57,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
         glm::vec3 basePatricio;
     float alturaPatricio;
     float angleX = 0 , angleY = 0;
+    int pastX = 0, pastY = ;
 		
 		// Added vars
 		GLfloat FOV;

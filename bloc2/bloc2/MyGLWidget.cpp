@@ -143,6 +143,26 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
 	update();
 }
 
+void MyGLWidget::mouseMoveEvent (QMouseEvent *event)
+{
+    
+    makeCurrent();
+    if (event->buttons() == Qt::LeftButton && !(event->modifiers() & (Qt::ShiftModifier | Qt::AltModifier | Qt::ControlModifier)))
+    {
+        int newX = event->x();
+        int newY = event->y();
+        
+        angleX = newX - pastX * 1;
+        angleY = newY - pastY * 1;
+        
+        viewTransform ();
+        update();
+        
+        pastX = xnew;
+        pastY = ynew;
+    }
+}
+
 void MyGLWidget::createBuffers () 
 {
 	// Dades de la caseta
