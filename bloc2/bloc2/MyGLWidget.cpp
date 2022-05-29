@@ -143,7 +143,7 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
 	update();
 }
 
-void MyGLWidget::mouseMoveEvent (QMouseEvent *e)
+void MyGLWidget::mouseMoveEvent (QMouseEvent *event)
 {
     
     makeCurrent();
