@@ -54,7 +54,8 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
         glm::vec3 centreEscena;
         float radiEscena, alfaIni;
         glm::vec3 basePatricio;
-        float alturaPatricio;
+    float alturaPatricio;
+    float angleX = 0 , angleY = 0;
 		
 		// Added vars
 		GLfloat FOV;
