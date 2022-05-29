@@ -66,7 +66,7 @@ void MyGLWidget::paintGL ()
     glBindVertexArray (VAO_Terra);
 
     // pintem
-    glDrawArrays(GL_TRIANGLES, 0, 4);
+    glDrawArrays(GL_TRIANGLES_STRIP, 0, 4);
 	
 	glBindVertexArray (0);
 }
@@ -222,9 +222,9 @@ void MyGLWidget::carregaShaders()
 }
 
 void MyGLWidget::calcularParametresEscena(glm::vec3 puntMinim, glm::vec3 puntMaxim) {
-    centreEscena.x = (puntMaxim.x + puntMinim.x) / 2;
-    centreEscena.y = (puntMaxim.y + puntMinim.y) / 2;
-    centreEscena.z = (puntMaxim.z + puntMinim.z) / 2;
+    centreEscena.x = (puntMaxim.x + puntMinim.x) / 2.0;
+    centreEscena.y = (puntMaxim.y + puntMinim.y) / 2.0;
+    centreEscena.z = (puntMaxim.z + puntMinim.z) / 2.0;
     radiEscena = sqrt((puntMinim.x - centreEscena.x)*(puntMinim.x - centreEscena.x)+
                       (puntMinim.y - centreEscena.y)*(puntMinim.y - centreEscena.y)+
                       (puntMinim.z - centreEscena.z)*(puntMinim.z - centreEscena.z));
