@@ -6,6 +6,7 @@ MyGLWidget::MyGLWidget (QWidget* parent) : QOpenGLWidget(parent), program(NULL)
 {
   setFocusPolicy(Qt::StrongFocus);  // per rebre events de teclat
   scale = 1.0f;
+  rotation = 0.0f
 }
 
 MyGLWidget::~MyGLWidget ()
@@ -63,6 +64,7 @@ void MyGLWidget::modelTransform ()
 {
   // Matriu de transformació de model
   glm::mat4 transform (1.0f);
+  transform = glm::rotate(transform, rotation, glm::vec3(0,1,0) );
   transform = glm::scale(transform, glm::vec3(scale));
   glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
 }
@@ -97,6 +99,10 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
 			scale -= 0.05;
 			break;
 		}
+        case Qt::Key_R: { //
+            rotation += M_PI/4;
+            break;
+        }
 		default: 
 			event->ignore(); 
 			break;

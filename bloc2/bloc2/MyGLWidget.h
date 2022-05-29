@@ -46,7 +46,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		QOpenGLShaderProgram *program;
 		// Internal vars
 		Model homer;
-		float scale;
+        float scale, rotation;
 		glm::vec3 pos;
 		
 		// Added vars
