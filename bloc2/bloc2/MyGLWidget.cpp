@@ -31,7 +31,8 @@ void MyGLWidget::ini_camera ()
     calcularParametresEscena(glm::vec3(-1,-1,-1), glm::vec3(1,1,1));
     
     float diametre = radiEscena * 1.5;
-	FOV = 2 * asin(radiEscena/diametre);
+    alfaIni = 2 * asin(radiEscena/diametre);
+	FOV = alfaIni;
 	ra = 1.0;
 	znear = diametre-radiEscena;
     zfar = diametre+radiEscena;
@@ -102,9 +103,10 @@ void MyGLWidget::viewTransform ()
 void MyGLWidget::resizeGL (int w, int h) 
 {
 	// Aquí anirà el codi que cal fer quan es redimensiona la finestra
-    float rv = w/float(h);
+    float rv = float(w)/float(h);
     
     ra = rv;
+    if (rv < 1) FOV = 2 * atan(tan(alfaIni)/rv);
     
     projectTransform();
     
