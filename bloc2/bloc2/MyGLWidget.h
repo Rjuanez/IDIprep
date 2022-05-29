@@ -30,7 +30,8 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		// functions
 		void createBuffers ();
 		void carregaShaders ();
-		void modelTransform ();
+		void homerTransform ();
+        void terraTransform ();
 		void ini_camera ();
 		void projectTransform ();
 		void viewTransform ();

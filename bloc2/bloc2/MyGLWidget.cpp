@@ -49,13 +49,15 @@ void MyGLWidget::paintGL ()
 	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// Carreguem la transformació de model
-	modelTransform ();
+	homerTransform ();
 
 	// Activem el VAO per a pintar la caseta 
 	glBindVertexArray (VAO_Homer);
 
 	// pintem
 	glDrawArrays(GL_TRIANGLES, 0, homer.faces().size()*3);
+    
+    terraTransform ();
     
     // Activem el VAO per a pintar la caseta
     glBindVertexArray (VAO_Terra);
@@ -66,12 +68,19 @@ void MyGLWidget::paintGL ()
 	glBindVertexArray (0);
 }
 
-void MyGLWidget::modelTransform () 
+void MyGLWidget::homerTransform ()
 {
   // Matriu de transformació de model
   glm::mat4 transform (1.0f);
   transform = glm::rotate(transform, rotation, glm::vec3(0,1,0) );
   transform = glm::scale(transform, glm::vec3(scale));
+  glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
+}
+void MyGLWidget::homerTransform ()
+{
+  // Matriu de transformació de model
+  glm::mat4 transform (1.0f);
+  transform = glm::scale(transform, glm::vec3(2));
   glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
 }
 
