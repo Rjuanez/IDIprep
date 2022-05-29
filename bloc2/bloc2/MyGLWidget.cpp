@@ -221,7 +221,7 @@ void MyGLWidget::carregaShaders()
 	viewLoc = glGetUniformLocation (program->programId(), "view");
 }
 
-void MyGLWidget::calcularParametresEscena(glm::vec3 puntMaxim, glm::vec3 puntMinim) {
+void MyGLWidget::calcularParametresEscena(glm::vec3 puntMinim, glm::vec3 puntMaxim) {
     centreEscena.x = (puntMaxim.x + puntMinim.x) / 2;
     centreEscena.y = (puntMaxim.y + puntMinim.y) / 2;
     centreEscena.z = (puntMaxim.z + puntMinim.z) / 2;

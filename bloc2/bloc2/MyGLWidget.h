@@ -35,7 +35,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		void ini_camera ();
 		void projectTransform ();
 		void viewTransform ();
-        void calcularParametresEscena(glm::vec3 puntMaxim, glm::vec3 puntMinim);
+        void calcularParametresEscena(glm::vec3 puntMinim, glm::vec3 puntMaxim);
 		// attribute locations
 		GLuint vertexLoc, colorLoc;
 		// uniform locations
