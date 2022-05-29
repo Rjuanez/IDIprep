@@ -51,7 +51,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
         float scale, rotation;
 		glm::vec3 pos;
         glm::vec3 centreEscena;
-        float radiEscena;
+        float radiEscena, alfaIni;
 		
 		// Added vars
 		GLfloat FOV;
