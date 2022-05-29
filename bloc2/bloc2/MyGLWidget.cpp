@@ -76,8 +76,9 @@ void MyGLWidget::patricioTransform ()
 {
   // Matriu de transformació de model
   glm::mat4 transform (1.0f);
+    transform = glm::scale(transform, glm::vec3(scale));
   transform = glm::rotate(transform, rotation, glm::vec3(0,1,0) );
-  transform = glm::scale(transform, glm::vec3(scale));
+    transform = glm::scale(transform, glm::vec3(4.0/alturaPatricio,4.0/alturaPatricio,4.0/alturaPatricio));
   transform = glm::translate(transform, glm::vec3(-basePatricio));
   glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
 }
