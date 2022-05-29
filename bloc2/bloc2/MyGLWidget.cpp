@@ -32,7 +32,7 @@ void MyGLWidget::ini_camera ()
     
     float diametre = radiEscena * 1.5;
     alfaIni = 2 * asin(radiEscena/diametre);
-	FOV = alfaIni;
+	FOV = (float)M_PI/4;
 	ra = 1.0;
 	znear = diametre-radiEscena;
     zfar = diametre+radiEscena;
