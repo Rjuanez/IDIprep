@@ -28,7 +28,7 @@ void MyGLWidget::initializeGL ()
 
 void MyGLWidget::ini_camera ()
 {
-    calcularParametresEscena(glm::vec3(-1,-1,-1), glm::vec3(1,1,1));
+    calcularParametresEscena(glm::vec3(-2.5,0,-2.5), glm::vec3(2.5,4,2.5));
     
     float diametre = radiEscena * 1.5;
     alfaIni = 2 * asin(radiEscena/diametre);
