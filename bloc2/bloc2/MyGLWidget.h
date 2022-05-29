@@ -30,7 +30,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		// functions
 		void createBuffers ();
 		void carregaShaders ();
-		void homerTransform ();
+		void patricioTransform ();
         void terraTransform ();
 		void ini_camera ();
 		void projectTransform ();
@@ -41,17 +41,19 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		// uniform locations
 		GLuint transLoc, projLoc, viewLoc;
 		// VAO names
-		GLuint VAO_Homer, VBO_HomerPos, VBO_HomerCol;
+		GLuint VAO_PAtricio, VBO_PatricioPos, VBO_PatricioPos;
 		//VBO names
 		GLuint VAO_Terra, VBO_TerraPos, VBO_TerraCol;
 		// Program
 		QOpenGLShaderProgram *program;
 		// Internal vars
-		Model homer;
+		Model patricio;
         float scale, rotation;
 		glm::vec3 pos;
         glm::vec3 centreEscena;
         float radiEscena, alfaIni;
+        glm::vec3 basePatricio;
+        float alturaPatricio;
 		
 		// Added vars
 		GLfloat FOV;
