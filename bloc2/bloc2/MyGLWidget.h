@@ -36,12 +36,13 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		void projectTransform ();
 		void viewTransform ();
         void calcularParametresEscena(glm::vec3 puntMaxim, glm::vec3 puntMinim);
+        void calcularParametresPatricio();
 		// attribute locations
 		GLuint vertexLoc, colorLoc;
 		// uniform locations
 		GLuint transLoc, projLoc, viewLoc;
 		// VAO names
-		GLuint VAO_PAtricio, VBO_PatricioPos, VBO_PatricioCol;
+		GLuint VAO_Patricio, VBO_PatricioPos, VBO_PatricioCol;
 		//VBO names
 		GLuint VAO_Terra, VBO_TerraPos, VBO_TerraCol;
 		// Program
