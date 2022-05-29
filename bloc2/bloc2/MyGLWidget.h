@@ -57,7 +57,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
         glm::vec3 basePatricio;
     float alturaPatricio;
     float angleX = 0 , angleY = 0;
-    int pastX = 0, pastY = 0;
+    int pastX, pastY;
 		
 		// Added vars
 		GLfloat FOV;
