@@ -86,7 +86,8 @@ void MyGLWidget::terraTransform ()
 {
   // Matriu de transformació de model
   glm::mat4 transform (1.0f);
-  transform = glm::scale(transform, glm::vec3(scale));
+  transform = glm::scale(transform, glm::vec3(5/2.0, 1, 5/2.0));
+  transform = glm::translate(transform, glm::vec3(0, -1, 0));
   glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
 }
 
