@@ -100,7 +100,7 @@ void MyGLWidget::viewTransform ()
 {
 	//glm::mat4 View = glm::lookAt (OBS, VRP, UP);
     glm::mat4 View (1.0f);
-    
+    View = glm:rotate(View, (float)M_PI/4, glm:vec3(1,0,0))
     View = glm::translate(View, glm::vec3(0, 0, -radiEscena*1.5));
 	glUniformMatrix4fv (viewLoc, 1, GL_FALSE, &View[0][0]);
 }
