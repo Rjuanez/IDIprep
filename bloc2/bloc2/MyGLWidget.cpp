@@ -158,8 +158,8 @@ void MyGLWidget::mouseMoveEvent (QMouseEvent *event)
         viewTransform ();
         update();
         
-        pastX = xnew;
-        pastY = ynew;
+        pastX = newX;
+        pastY = newY;
     }
 }
 
