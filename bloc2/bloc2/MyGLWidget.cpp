@@ -102,6 +102,11 @@ void MyGLWidget::viewTransform ()
 void MyGLWidget::resizeGL (int w, int h) 
 {
 	// Aquí anirà el codi que cal fer quan es redimensiona la finestra
+    rw = w/h;
+    if (rw > 1) ra = 1;
+    
+    update();
+    
 }
 
 void MyGLWidget::keyPressEvent(QKeyEvent* event) 
