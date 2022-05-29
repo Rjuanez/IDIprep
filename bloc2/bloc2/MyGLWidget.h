@@ -35,6 +35,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		void ini_camera ();
 		void projectTransform ();
 		void viewTransform ();
+        void calcularParametresEscena(glm::vec3 puntMaxim, glm::vec3 puntMinim);
 		// attribute locations
 		GLuint vertexLoc, colorLoc;
 		// uniform locations
@@ -49,6 +50,8 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		Model homer;
         float scale, rotation;
 		glm::vec3 pos;
+        glm::vec3 centreEscena;
+        float radiEscena;
 		
 		// Added vars
 		GLfloat FOV;

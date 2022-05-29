@@ -28,14 +28,17 @@ void MyGLWidget::initializeGL ()
 
 void MyGLWidget::ini_camera ()
 {
-	FOV = M_PI/2;
+    calcularParametresEscena(glm::vec3(-1,-1,-1), glm::vec3(1,1,1))
+    
+    float diametre = radiEscena * 1.5;
+	FOV = 2 * asin(radiEscena/diametre);
 	ra = 1.0;
-	znear = 0.4;
-    zfar = 3.0;
+	znear = diametre-radiEscena;
+    zfar = diametre+radiEscena;
     projectTransform();
     
-	OBS = glm::vec3(0,0,1);
-	VRP = glm::vec3(0,0,0);
+	OBS = centreEscena + diametre*glm::vec3(0,0,1);
+	VRP = centreEscena;
 	UP = glm::vec3(0,1,0);	  
 	viewTransform();
   
@@ -216,5 +219,14 @@ void MyGLWidget::carregaShaders()
 	transLoc = glGetUniformLocation (program->programId(), "TG");
 	projLoc = glGetUniformLocation (program->programId(), "proj");
 	viewLoc = glGetUniformLocation (program->programId(), "view");
+}
+
+void MyGLWidget::calcularParametresEscena(glm::vec3 puntMaxim, glm::vec3 puntMinim) {
+    centreEscena.x = (puntMaxim.x + puntMinim.x) / 2;
+    centreEscena.y = (puntMaxim.y + puntMinim.y) / 2;
+    centreEscena.z = (puntMaxim.z + puntMinim.z) / 2;
+    radiEscena = sqrt((puntMinim.x - centreEscena.x)*(puntMinim.x - centreEscena.x)+
+                      (puntMinim.y - centreEscena.y)*(puntMinim.y - centreEscena.y)+
+                      (puntMinim.z - centreEscena.z)*(puntMinim.z - centreEscena.z))
 }
 
