@@ -79,15 +79,14 @@ void MyGLWidget::patricioTransform ()
     transform = glm::scale(transform, glm::vec3(scale));
   transform = glm::rotate(transform, rotation, glm::vec3(0,1,0) );
     transform = glm::scale(transform, glm::vec3(4.0/alturaPatricio,4.0/alturaPatricio,4.0/alturaPatricio));
-  transform = glm::translate(transform, glm::vec3(-basePatricio));
+  transform = glm::translate(transform, -basePatricio);
   glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
 }
 void MyGLWidget::terraTransform ()
 {
   // Matriu de transformació de model
   glm::mat4 transform (1.0f);
-  transform = glm::scale(transform, glm::vec3(5/2.0, 1, 5/2.0));
-  transform = glm::translate(transform, glm::vec3(0, -1, 0));
+  transform = glm::scale(transform, glm::vec3(scale));
   glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
 }
 
@@ -170,10 +169,10 @@ void MyGLWidget::createBuffers ()
 	// Dades del terra
 	// Dos VBOs, un amb posició i l'altre amb color
 	glm::vec3 posterra[4] = {
-		glm::vec3(-1.0, -1.0, -1.0),
-		glm::vec3(-1.0, -1.0, 1.0),
-		glm::vec3(1.0, -1.0, -1.0),
-		glm::vec3(1.0, -1.0, 1.0)
+		glm::vec3(-2.5,  0.0, -2.5),
+        glm::vec3(-2.5,  0.0,  2.5),
+        glm::vec3( 2.5,  0.0, -2.5),
+        glm::vec3( 2.5,  0.0,  2.5)
 	}; 
 	glm::vec3 colterra[4] = {
 		glm::vec3(1,0,1),
