@@ -41,7 +41,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		// uniform locations
 		GLuint transLoc, projLoc, viewLoc;
 		// VAO names
-		GLuint VAO_PAtricio, VBO_PatricioPos, VBO_PatricioPos;
+		GLuint VAO_PAtricio, VBO_PatricioPos, VBO_PatricioCol;
 		//VBO names
 		GLuint VAO_Terra, VBO_TerraPos, VBO_TerraCol;
 		// Program
