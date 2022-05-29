@@ -79,7 +79,7 @@ void MyGLWidget::homerTransform ()
   transform = glm::scale(transform, glm::vec3(scale));
   glUniformMatrix4fv(transLoc, 1, GL_FALSE, &transform[0][0]);
 }
-void MyGLWidget::homerTransform ()
+void MyGLWidget::terraTransform ()
 {
   // Matriu de transformació de model
   glm::mat4 transform (1.0f);
@@ -227,6 +227,6 @@ void MyGLWidget::calcularParametresEscena(glm::vec3 puntMaxim, glm::vec3 puntMin
     centreEscena.z = (puntMaxim.z + puntMinim.z) / 2;
     radiEscena = sqrt((puntMinim.x - centreEscena.x)*(puntMinim.x - centreEscena.x)+
                       (puntMinim.y - centreEscena.y)*(puntMinim.y - centreEscena.y)+
-                      (puntMinim.z - centreEscena.z)*(puntMinim.z - centreEscena.z))
+                      (puntMinim.z - centreEscena.z)*(puntMinim.z - centreEscena.z));
 }
 
