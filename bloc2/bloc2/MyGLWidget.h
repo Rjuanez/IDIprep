@@ -15,6 +15,17 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 	public:
 		MyGLWidget (QWidget *parent=0);
 		~MyGLWidget ();
+        
+    public slots:
+        void changeFov(int );
+        void changeCameraY(int);
+        void changeCameraX(int);
+        
+    signals:
+        void changeDialValueX(int);
+        void changeDialValueY(int);
+        
+        
 	protected:
 		// initializeGL - Aqui incluim les inicialitzacions del contexte grafic.
 		virtual void initializeGL ( );
@@ -31,7 +42,9 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 		// functions
 		void createBuffers ();
 		void carregaShaders ();
-		void patricioTransform ();
+		void patricioTransform1();
+        void patricioTransform2();
+        void patricioTransform3();
         void terraTransform ();
 		void ini_camera ();
 		void projectTransform ();
@@ -58,9 +71,12 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     float alturaPatricio;
     float angleX = 0 , angleY = 0;
     int pastX, pastY;
+    float zoom = 1;
+    bool prespectiva = true;
+    float left, right, bottom, top;
 		
 		// Added vars
-		GLfloat FOV;
+		GLfloat FOV, FOVini;
 		GLfloat ra;
 		GLfloat znear;
 		GLfloat zfar;
