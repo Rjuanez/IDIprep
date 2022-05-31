@@ -79,7 +79,7 @@ void MyGLWidget::modelTransformCub (float escala, float angle)
   // transformació geomètrica (TG) del cub usant els paràmetres adientment
     TG = glm::mat4(1.f);
     if (angle == 0)TG = glm::translate(TG, glm::vec3 (5, 0.0, 0.0));
-    if (angle > 0.0) {
+    if (angle != 0.0) {
         TG = glm::rotate(TG, angle, glm::vec3 (0.0, 1.0, 0.0));
         TG = glm::translate(TG, glm::vec3 (-5, 0.0, 0.0));
     }
