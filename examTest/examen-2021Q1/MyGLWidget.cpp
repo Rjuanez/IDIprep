@@ -65,8 +65,11 @@ void MyGLWidget::paintGL ()   // Mètode que has de modificar
     modelTransformCub (2.0, 0.0);
     glDrawArrays(GL_TRIANGLES, 0, 36);
     
-    //modelTransformCub (2.5, M_PI/2);
-    //glDrawArrays(GL_TRIANGLES, 0, 36);
+    modelTransformCub (2.5, M_PI/3);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    modelTransformCub (3, -M_PI/3);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
 void MyGLWidget::modelTransformCub (float escala, float angle) 
