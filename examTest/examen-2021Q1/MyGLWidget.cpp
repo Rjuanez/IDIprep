@@ -147,10 +147,10 @@ void MyGLWidget::projectTransform ()
     ExamGLWidget::projectTransform();
   else
   {
-      int left = -radiEsc;
-      int right = radiEsc;
-      int bottom = -radiEsc;
-      int top = radiEsc;
+      float left = -radiEsc;
+      float right = radiEsc;
+      float bottom = -radiEsc;
+      float top = radiEsc;
     // Codi per a la projectMatrix de la Càmera-2
       glm::mat4 Proj;  // Matriu de projecció
       Proj = glm::ortho (left, right, bottom, top, zn, zf);
