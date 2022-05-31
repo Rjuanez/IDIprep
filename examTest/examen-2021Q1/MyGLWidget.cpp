@@ -107,11 +107,13 @@ void MyGLWidget::modelTransformPatricio ()    // Mètode que has de modificar
         case 2:
             TG = glm::rotate(TG, float(-(M_PI/3.0)), glm::vec3 (0.0, 1.0, 0.0));
             TG = glm::translate(TG, glm::vec3 (-5, 0.0, 0.0));
+            TG = glm::rotate(TG, float((M_PI/2.0)), glm::vec3 (0.0, 1.0, 0.0));
             
             break;
         case 3:
             TG = glm::rotate(TG, float(M_PI/3.0), glm::vec3 (0.0, 1.0, 0.0));
             TG = glm::translate(TG, glm::vec3 (-5, 0.0, 0.0));
+            TG = glm::rotate(TG, float((M_PI/2.0)), glm::vec3 (0.0, 1.0, 0.0));
             
             break;
         default:
