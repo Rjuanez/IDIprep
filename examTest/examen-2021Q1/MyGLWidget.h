@@ -16,6 +16,7 @@ class MyGLWidget:public ExamGLWidget
     virtual void projectTransform ();
     virtual void viewTransform ();
     virtual void resizeGL (int width, int height);
+    virtual void iniEscena();
 
   private:
     int printOglError(const char file[], int line, const char func[]);

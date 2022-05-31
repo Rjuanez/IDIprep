@@ -147,10 +147,7 @@ void MyGLWidget::projectTransform ()
     ExamGLWidget::projectTransform();
   else
   {
-       left = -radiEsc;
-       right = radiEsc;
-       bottom = -radiEsc;
-       top = radiEsc;
+       
     // Codi per a la projectMatrix de la Càmera-2
       glm::mat4 Proj;  // Matriu de projecció
       Proj = glm::ortho (left, right, bottom, top, zn, zf);
@@ -215,7 +212,7 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
 }
 
 void MyGLWidget::resizeGL (int w, int h) {
-    std::cout << "LLEGA" << std::endl;
+    
     #ifdef __APPLE__
       // Aquest codi és necessari únicament per a MACs amb pantalla retina.
       GLint vp[4];
@@ -230,13 +227,21 @@ void MyGLWidget::resizeGL (int w, int h) {
     float rv = float(ample)/float(alt);
       ra = float(ample)/float(alt);
     if (rv >= 1) {
-        left = -ample*rv;
-        right = ample*rv;
+        left = -radiEsc*rv;
+        right = radiEsc*rv;
     }
     else {
-        top = ample/rv;
-        bottom = -ample/rv;
+        top = radiEsc/rv;
+        bottom = -radiEsc/rv;
     }
     
       projectTransform();
+}
+
+vodi MyGLWidget::iniEscena() {
+    ExamGLWidget::iniEscena();
+    left = -radiEsc;
+    right = radiEsc;
+    bottom = -radiEsc;
+    top = radiEsc;
 }
