@@ -21,6 +21,6 @@ class MyGLWidget:public ExamGLWidget
     
     
     //variables de entorno
-    bool cubosActivados = true;
+    bool cubosActivados = true, colFocusGroc = false;
     unsigned int posPatri = 1;
 };

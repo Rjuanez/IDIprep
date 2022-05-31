@@ -163,7 +163,16 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
     break;
 	}
   case Qt::Key_F: {
-      // ...
+      colFocusGroc = !colFocusGroc;
+      if (colFocusGroc){
+          colFoc = glm::vec3(0,1,1);
+          ExamGLWidget::enviaColFocus();
+      }
+      else {
+          colFoc = glm::vec3(1,1,1);
+          ExamGLWidget::enviaColFocus();
+      }
+          
     break;
 	}
   case Qt::Key_C: {
