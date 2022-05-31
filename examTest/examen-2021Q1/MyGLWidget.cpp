@@ -95,7 +95,7 @@ void MyGLWidget::modelTransformPatricio ()    // Mètode que has de modificar
 {
   //ExamGLWidget::modelTransformPatricio ();
     TG = glm::mat4(1.f);
-    TG = glm::translate(TG, glm::(5,0.0,0.0));
+    TG = glm::translate(TG, glm::vec3(5,0.0,0.0));
     TG = glm::scale(TG, glm::vec3 (escala*2, escala*2, escala*2));
     TG = glm::translate(TG, -centreBasePat);
     
