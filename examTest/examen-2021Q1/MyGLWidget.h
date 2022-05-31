@@ -8,6 +8,10 @@ class MyGLWidget:public ExamGLWidget
     MyGLWidget(QWidget *parent=0) : ExamGLWidget(parent) {}
     ~MyGLWidget();
 
+    public slots:
+    void setOpticaPrespectiva();
+    void setOpticaOrtogonal();
+
   protected:
     virtual void paintGL ();
     virtual void keyPressEvent(QKeyEvent* event);
