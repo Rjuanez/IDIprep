@@ -60,20 +60,24 @@ void MyGLWidget::paintGL ()   // Mètode que has de modificar
     modelTransformTerra ();
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
+    if (cubosActivados) {
     // Pintem el cub
     glBindVertexArray(VAO_Cub);
-    //modelTransformCub (2.0, 0.0);
-    //glDrawArrays(GL_TRIANGLES, 0, 36);
+    modelTransformCub (2.0, 0.0);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
     
     modelTransformCub (2.5, -(M_PI/3));
     glDrawArrays(GL_TRIANGLES, 0, 36);
     
     modelTransformCub (3, M_PI/3);
     glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
+    else {
     
     glBindVertexArray (VAO_Patr);
     modelTransformPatricio ();
     glDrawArrays(GL_TRIANGLES, 0, patr.faces().size()*3);
+    }
 }
 
 void MyGLWidget::modelTransformCub (float escala, float angle) 
@@ -126,7 +130,7 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
   makeCurrent();
   switch (event->key()) {
   case Qt::Key_V: {
-      // ...
+      cubosActivados = !cubosActivados;
     break;
 	}
   case Qt::Key_1: {

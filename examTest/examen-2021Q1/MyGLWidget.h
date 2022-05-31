@@ -18,4 +18,8 @@ class MyGLWidget:public ExamGLWidget
 
   private:
     int printOglError(const char file[], int line, const char func[]);
+    
+    
+    //variables de entorno
+    bool cubosActivados = true;
 };
