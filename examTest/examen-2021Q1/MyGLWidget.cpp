@@ -132,7 +132,12 @@ void MyGLWidget::viewTransform ()    // Mètode que has de modificar
     ExamGLWidget::viewTransform();
   else
   {
-    // Codi per a la viewMatrix de la Càmera-2
+    View = glm::translate(glm::mat4(1.f), glm::vec3(0, 0, -2*radiEsc));
+      View = glm::rotate(View, 2*M_PI, glm::vec3(1, 0, 0));
+      View = glm::rotate(View, 0.0, glm::vec3(0, 1, 0));
+      View = glm::translate(View, -centreEsc);
+    
+      glUniformMatrix4fv (viewLoc, 1, GL_FALSE, &View[0][0]);
   }
 }
 
@@ -142,7 +147,15 @@ void MyGLWidget::projectTransform ()
     ExamGLWidget::projectTransform();
   else
   {
+      int left = -radiEsc;
+      int right = radiEsc;
+      int bottom = -radiEsc;
+      int top = radiEsc;
     // Codi per a la projectMatrix de la Càmera-2
+      glm::mat4 Proj;  // Matriu de projecció
+      Proj = glm::ortho (left, right, bottom, top, zn, zf)
+      
+      glUniformMatrix4fv (projLoc, 1, GL_FALSE, &Proj[0][0]);
   }
 }
 
@@ -179,7 +192,9 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
     break;
 	}
   case Qt::Key_C: {
-      // ...
+      camPlanta = !camPlanta;
+      viewTransform();
+      projectTransform();
     break;
 	}
   case Qt::Key_Right: {
