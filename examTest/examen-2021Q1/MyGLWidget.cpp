@@ -99,7 +99,22 @@ void MyGLWidget::modelTransformPatricio ()    // Mètode que has de modificar
 {
   //ExamGLWidget::modelTransformPatricio ();
     TG = glm::mat4(1.f);
-    TG = glm::translate(TG, glm::vec3(5,0.0,0.0));
+    switch (posPatri) {
+        case 1:
+            statementsTG = glm::translate(TG, glm::vec3(5,0.0,0.0));
+            break;
+        case 2:
+            TG = glm::rotate(TG, -(M_PI/3), glm::vec3 (0.0, 1.0, 0.0));
+            TG = glm::translate(TG, glm::vec3 (-5, 0.0, 0.0));
+            break;
+        case 3:
+            TG = glm::rotate(TG, M_PI/3, glm::vec3 (0.0, 1.0, 0.0));
+            TG = glm::translate(TG, glm::vec3 (-5, 0.0, 0.0));
+            break;
+        default:
+            break;
+    }
+    
     TG = glm::scale(TG, glm::vec3 (escala*2, escala*2, escala*2));
     TG = glm::translate(TG, -centreBasePat);
     
@@ -134,15 +149,15 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
     break;
 	}
   case Qt::Key_1: {
-      // ...
+      posPatri = 1;
     break;
 	}
   case Qt::Key_2: {
-      // ...
+      posPatri = 2;
     break;
 	}
   case Qt::Key_3: {
-      // ...
+      posPatri = 3;
     break;
 	}
   case Qt::Key_F: {

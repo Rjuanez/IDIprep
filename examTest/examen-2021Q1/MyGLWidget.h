@@ -22,4 +22,5 @@ class MyGLWidget:public ExamGLWidget
     
     //variables de entorno
     bool cubosActivados = true;
+    unsigned int posPatri = 1;
 };
