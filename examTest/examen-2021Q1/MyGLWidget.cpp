@@ -68,8 +68,8 @@ void MyGLWidget::paintGL ()   // Mètode que has de modificar
     modelTransformCub (2.5, M_PI/3);
     glDrawArrays(GL_TRIANGLES, 0, 36);
     
-    modelTransformCub (3, -M_PI/3);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+    //modelTransformCub (3, -M_PI/3);
+    //glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
 void MyGLWidget::modelTransformCub (float escala, float angle) 
@@ -80,7 +80,7 @@ void MyGLWidget::modelTransformCub (float escala, float angle)
     TG = glm::mat4(1.f);
     TG = glm::translate(TG, glm::vec3 (5, 0.0, 0.0));
     if (angle > 0.0) {
-        TG = glm::rotate(TG, angle, glm::vec3 (0.0, 1.0, 0.0));
+        //TG = glm::rotate(TG, angle, glm::vec3 (0.0, 1.0, 0.0));
         TG = glm::translate(TG, glm::vec3 (-5, 0.0, 0.0));
     }
     TG = glm::scale(TG, glm::vec3 (escala/0.5, escala/0.5, escala/0.5));
