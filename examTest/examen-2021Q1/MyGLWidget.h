@@ -25,6 +25,7 @@ class MyGLWidget:public ExamGLWidget
     //variables de entorno
     bool cubosActivados = true, colFocusGroc = false;
     unsigned int posPatri = 1;
+    unsigned int  rotacion = 0;
     
     //variables camara
     float left, right, bottom, top;

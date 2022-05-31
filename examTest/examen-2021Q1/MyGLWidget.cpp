@@ -86,6 +86,7 @@ void MyGLWidget::modelTransformCub (float escala, float angle)
   // En aquest mètode has de substituir aquest codi per construir la 
   // transformació geomètrica (TG) del cub usant els paràmetres adientment
     TG = glm::mat4(1.f);
+    TG = glm::rotate(TG, float(rotacion*M_PI/3), glm::vec3 (0.0, 1.0, 0.0));
     if (angle == 0)TG = glm::translate(TG, glm::vec3 (5, 0.0, 0.0));
     else {
         TG = glm::rotate(TG, angle, glm::vec3 (0.0, 1.0, 0.0));
@@ -195,11 +196,11 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
     break;
 	}
   case Qt::Key_Right: {
-      // ...
+      ++rotacion;
     break;
 	}
   case Qt::Key_Left: {
-      // ...
+      --rotacion;
     break;
 	}
   case Qt::Key_R: {
