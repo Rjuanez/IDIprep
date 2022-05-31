@@ -15,6 +15,7 @@ class MyGLWidget:public ExamGLWidget
     virtual void modelTransformPatricio ();
     virtual void projectTransform ();
     virtual void viewTransform ();
+    virtual void resizeGL (int w, int h);
 
   private:
     int printOglError(const char file[], int line, const char func[]);
@@ -23,4 +24,7 @@ class MyGLWidget:public ExamGLWidget
     //variables de entorno
     bool cubosActivados = true, colFocusGroc = false;
     unsigned int posPatri = 1;
+    
+    //variables camara
+    float left, right, bottom, top;
 };
