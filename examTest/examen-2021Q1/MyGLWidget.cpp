@@ -248,7 +248,7 @@ void MyGLWidget::iniEscena() {
     top = radiEsc;
 }
 
-void setOpticaPrespectiva() {
+void MyGLWidget::setOpticaPrespectiva() {
     makeCurrent();
     camPlanta = false;
     viewTransform();
@@ -256,7 +256,7 @@ void setOpticaPrespectiva() {
     update();
 }
 
-void setOpticaOrtogonal() {
+void MyGLWidget::setOpticaOrtogonal() {
     makeCurrent();
     camPlanta = true;
     viewTransform();
