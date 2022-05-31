@@ -13,8 +13,8 @@ class MyGLWidget:public ExamGLWidget
     void setOpticaOrtogonal();
     
     signals:
-    opticaOrtogonal();
-    opticaPrespectiva();
+    void opticaOrtogonal();
+    void opticaPrespectiva();
 
   protected:
     virtual void paintGL ();
