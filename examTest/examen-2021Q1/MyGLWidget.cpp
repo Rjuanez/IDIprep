@@ -228,13 +228,13 @@ void MyGLWidget::resizeGL (int w, int h) {
     
     float rv = float(ample)/float(alt);
       ra = float(ample)/float(alt);
-    if (rv > 1) {
+    if (rv >= 1) {
         left = -ample*rv;
         right = ample*rv;
     }
     else {
-        top = ample*rv;
-        bottom = -ample*rv;
+        top = ample/rv;
+        bottom = -ample/rv;
     }
     
       projectTransform();

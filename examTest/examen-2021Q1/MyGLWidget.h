@@ -15,7 +15,7 @@ class MyGLWidget:public ExamGLWidget
     virtual void modelTransformPatricio ();
     virtual void projectTransform ();
     virtual void viewTransform ();
-    virtual void resizeGL (int w, int h);
+    virtual void resizeGL (int width, int height);
 
   private:
     int printOglError(const char file[], int line, const char func[]);
