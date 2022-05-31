@@ -133,7 +133,7 @@ void MyGLWidget::viewTransform ()    // Mètode que has de modificar
   else
   {
     View = glm::translate(glm::mat4(1.f), glm::vec3(0, 0, -2*radiEsc));
-      View = glm::rotate(View, float(2*M_PI), glm::vec3(1, 0, 0));
+      View = glm::rotate(View, float(M_PI), glm::vec3(1, 0, 0));
       View = glm::rotate(View, 0.0f, glm::vec3(0, 1, 0));
       View = glm::translate(View, -centreEsc);
     
