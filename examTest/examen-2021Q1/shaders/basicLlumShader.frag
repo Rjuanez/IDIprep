@@ -11,7 +11,7 @@ out vec4 FragColor;
 
 // Valors per als components que necessitem dels focus de llum
 vec3 llumAmbient = vec3(0.2, 0.2, 0.2);
-vec3 posFocus = vec3(0, 0, 0);
+vec3 posFocus = vec3(1, 1, 1);
 
 uniform mat4 proj;
 uniform mat4 view;
@@ -55,6 +55,12 @@ vec3 Especular (vec3 NormSCO, vec3 L, vec4 vertSCO, vec3 colFocus)
 }
 
 void main()
-{	
-    FragColor = vec4(fmatdiff,1);
+{
+    vec3 Lfragment = normalize(posFocus - vertexSCO.xyz);
+
+    // Normal
+    vec3 normalNew = normalize(normalSCO);
+
+    // Phong
+    FragColor = vec4 (Especular(normalNew, Lfragment, vertexSCO, colFocus), 1);
 }
