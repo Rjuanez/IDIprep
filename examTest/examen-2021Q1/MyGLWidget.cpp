@@ -133,7 +133,7 @@ void MyGLWidget::viewTransform ()    // Mètode que has de modificar
   else
   {
     View = glm::translate(glm::mat4(1.f), glm::vec3(0, 0, -2*radiEsc));
-      View = glm::rotate(View, 2*M_PI, glm::vec3(1, 0, 0));
+      View = glm::rotate(View, float(2*M_PI), glm::vec3(1, 0, 0));
       View = glm::rotate(View, 0.0, glm::vec3(0, 1, 0));
       View = glm::translate(View, -centreEsc);
     
@@ -153,7 +153,7 @@ void MyGLWidget::projectTransform ()
       int top = radiEsc;
     // Codi per a la projectMatrix de la Càmera-2
       glm::mat4 Proj;  // Matriu de projecció
-      Proj = glm::ortho (left, right, bottom, top, zn, zf)
+      Proj = glm::ortho (left, right, bottom, top, zn, zf);
       
       glUniformMatrix4fv (projLoc, 1, GL_FALSE, &Proj[0][0]);
   }
