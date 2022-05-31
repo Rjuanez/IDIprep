@@ -186,7 +186,7 @@ void BL3GLWidget::calculaCapsaModel ()
 void BL3GLWidget::creaBuffersPatricio ()
 {
   // Carreguem el model de l'OBJ - Atenció! Abans de crear els buffers!
-  patr.load("../models/Patricio.obj");
+  patr.load("./models/Patricio.obj");
 
   // Calculem la capsa contenidora del model
   calculaCapsaModel ();

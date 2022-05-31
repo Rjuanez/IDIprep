@@ -5,18 +5,19 @@
 #include <QOpenGLShaderProgram>
 #include <QKeyEvent>
 #include <QMouseEvent>
+#include <QTimer>
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-#include "./Model/model.h"
+#include "model.h"
 
-class BL3GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core 
+class ExamGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core 
 {
   Q_OBJECT
 
   public:
-    BL3GLWidget (QWidget *parent=0);
-    ~BL3GLWidget ();
+    ExamGLWidget (QWidget *parent=0);
+    ~ExamGLWidget ();
 
   protected:
     // initializeGL - Aqui incluim les inicialitzacions del contexte grafic.
@@ -32,28 +33,32 @@ class BL3GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     // corresponent de ratolí
     virtual void mousePressEvent (QMouseEvent *event);
     virtual void mouseReleaseEvent (QMouseEvent *event);
-
-    void creaBuffersPatricio ();
-    void creaBuffersTerraIParet ();
-    void carregaShaders ();
-    void iniEscena ();
-    void iniCamera ();
-    virtual void iniMaterialTerra ();
-    void projectTransform ();
-    void viewTransform ();
+    virtual void mouseMoveEvent (QMouseEvent *event);
+    
+    virtual void iniMaterialCub ();
     virtual void modelTransformTerra ();
     virtual void modelTransformPatricio ();
-    void calculaCapsaModel ();
+    virtual void modelTransformCub (float escala, float angle);
+    virtual void enviaColFocus ();
+    virtual void iniEscena ();
+    virtual void iniCamera ();
+    virtual void projectTransform ();
+    virtual void viewTransform ();
+
+    void creaBuffersPatricio ();
+    void creaBuffersTerra ();
+    void creaBuffersCub ();
+    void carregaShaders ();
+    void calculaCapsaModel (Model &p, float &escala, glm::vec3 &centreBase);
 
     // VAO names
-    GLuint VAO_Patr;
-    GLuint VAO_Terra;
+    GLuint VAO_Patr, VAO_Cub, VAO_Terra;
     // Program
     QOpenGLShaderProgram *program;
     // Viewport
     GLint ample, alt;
     // uniform locations
-    GLuint transLoc, projLoc, viewLoc;
+    GLuint transLoc, projLoc, viewLoc, colfocusLoc;
     // attribute locations
     GLuint vertexLoc, normalLoc, matambLoc, matdiffLoc, matspecLoc, matshinLoc;
 
@@ -65,19 +70,22 @@ class BL3GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     // model
     Model patr;
     // paràmetres calculats a partir de la capsa contenidora del model
-    glm::vec3 centrePatr;
+    glm::vec3 centreBasePat;
     float escala;
-    // radi de l'escena
-    float radiEsc;
+
+    glm::vec3 centreEsc;
+    float radiEsc, ra, fov, zn, zf;
 
     // Definim els paràmetres del material del terra
     glm::vec3 amb, diff, spec;
     float shin;
 
+    glm::vec3 colFoc;
+    float angleX, angleY;
+    bool camPlanta;
+
     typedef  enum {NONE, ROTATE} InteractiveAction;
     InteractiveAction DoingInteractive;
     int xClick, yClick;
-    float angleY;
-    bool perspectiva;
 };
 
