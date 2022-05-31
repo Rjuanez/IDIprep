@@ -94,6 +94,8 @@
    <header location="global">MyGLWidget.h</header>
    <container>1</container>
    <slots>
+    <signal>opticaPrespectiva()</signal>
+    <signal>opticaOrtogonal()</signal>
     <slot>setOpticaPrespectiva()</slot>
     <slot>setOpticaOrtogonal()</slot>
    </slots>
@@ -146,6 +148,38 @@
     <hint type="destinationlabel">
      <x>671</x>
      <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>opticaPrespectiva()</signal>
+   <receiver>radioButton_2</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>780</x>
+     <y>36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>opticaOrtogonal()</signal>
+   <receiver>radioButton</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>646</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>788</x>
+     <y>79</y>
     </hint>
    </hints>
   </connection>

@@ -9,14 +9,16 @@
 #ifndef UI_MYFORM_H
 #define UI_MYFORM_H
 
+#include <MyGLWidget.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include "MyGLWidget.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -26,6 +28,10 @@ public:
     QHBoxLayout *horizontalLayout;
     MyGLWidget *widget;
     QVBoxLayout *verticalLayout;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label;
+    QRadioButton *radioButton_2;
+    QRadioButton *radioButton;
     QSpacerItem *verticalSpacer;
     QPushButton *pushButton;
 
@@ -49,9 +55,29 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        label = new QLabel(MyForm);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        verticalLayout_2->addWidget(label);
+
+        radioButton_2 = new QRadioButton(MyForm);
+        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+
+        verticalLayout_2->addWidget(radioButton_2);
+
+        radioButton = new QRadioButton(MyForm);
+        radioButton->setObjectName(QString::fromUtf8("radioButton"));
+
+        verticalLayout_2->addWidget(radioButton);
+
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout->addItem(verticalSpacer);
+        verticalLayout_2->addItem(verticalSpacer);
+
+
+        verticalLayout->addLayout(verticalLayout_2);
 
         pushButton = new QPushButton(MyForm);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -69,6 +95,8 @@ public:
 
         retranslateUi(MyForm);
         QObject::connect(pushButton, SIGNAL(clicked()), MyForm, SLOT(close()));
+        QObject::connect(radioButton_2, SIGNAL(clicked()), widget, SLOT(setOpticaPrespectiva()));
+        QObject::connect(radioButton, SIGNAL(clicked()), widget, SLOT(setOpticaOrtogonal()));
 
         QMetaObject::connectSlotsByName(MyForm);
     } // setupUi
@@ -76,6 +104,9 @@ public:
     void retranslateUi(QWidget *MyForm)
     {
         MyForm->setWindowTitle(QApplication::translate("MyForm", "IDI-Lab", nullptr));
+        label->setText(QApplication::translate("MyForm", "Optica", nullptr));
+        radioButton_2->setText(QApplication::translate("MyForm", "Prespectiva", nullptr));
+        radioButton->setText(QApplication::translate("MyForm", "Ortogonal", nullptr));
         pushButton->setText(QApplication::translate("MyForm", "&Sortir", nullptr));
     } // retranslateUi
 
