@@ -33,17 +33,42 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Optica</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_2">
+         <property name="text">
+          <string>Prespectiva</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton">
+         <property name="text">
+          <string>Ortogonal</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">
@@ -66,8 +91,12 @@
   <customwidget>
    <class>MyGLWidget</class>
    <extends>QWidget</extends>
-   <header>MyGLWidget.h</header>
+   <header location="global">MyGLWidget.h</header>
    <container>1</container>
+   <slots>
+    <slot>setOpticaPrespectiva()</slot>
+    <slot>setOpticaOrtogonal()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -79,12 +108,44 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>796</x>
-     <y>596</y>
+     <x>794</x>
+     <y>718</y>
     </hint>
     <hint type="destinationlabel">
      <x>839</x>
      <y>529</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>setOpticaPrespectiva()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>744</x>
+     <y>44</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>657</x>
+     <y>50</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>setOpticaOrtogonal()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>730</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>671</x>
+     <y>96</y>
     </hint>
    </hints>
   </connection>
