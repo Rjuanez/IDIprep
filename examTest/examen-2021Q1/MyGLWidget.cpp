@@ -192,6 +192,8 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
 	}
   case Qt::Key_C: {
       camPlanta = !camPlanta;
+      if (camPlanta) emit opticaOrtogonal();
+      else emit opticaPrespectiva();
       viewTransform();
       projectTransform();
     break;

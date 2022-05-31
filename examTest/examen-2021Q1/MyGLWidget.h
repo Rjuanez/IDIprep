@@ -11,6 +11,10 @@ class MyGLWidget:public ExamGLWidget
     public slots:
     void setOpticaPrespectiva();
     void setOpticaOrtogonal();
+    
+    signals:
+    opticaOrtogonal()
+    opticaPrespectiva()
 
   protected:
     virtual void paintGL ();
