@@ -215,7 +215,7 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
 }
 
 void MyGLWidget::resizeGL (int w, int h) {
-    std::cout << "LLEGA";
+    std::cout << "LLEGA" << std::endl;
     #ifdef __APPLE__
       // Aquest codi és necessari únicament per a MACs amb pantalla retina.
       GLint vp[4];
