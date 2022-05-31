@@ -80,7 +80,7 @@ void MyGLWidget::modelTransformCub (float escala, float angle)
         TG = glm::rotate(TG, angle, glm::vec3 (0.0, 1.0, 0.0));
         TG = glm::translate(TG, glm::vec3 (-5, 0.0, 0.0));
     }
-    TG = glm::scale(TG, glm::vec3 (escala, escala, escala));
+    TG = glm::scale(TG, glm::vec3 (escala/0.5, escala/0.5, escala/0.5));
     glUniformMatrix4fv (transLoc, 1, GL_FALSE, &TG[0][0]);
 }
 
