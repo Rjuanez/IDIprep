@@ -62,5 +62,5 @@ void main()
     vec3 normalized = normalize(normalSCO);
 
     // Phong
-    FragColor = vec4 (Especular(normalized, Lfragment, vertexSCO, colFocus)  + Difus(normalized, Lfragment, colFocus), 1);
+    FragColor = vec4 (Especular(normalized, Lfragment, vertexSCO, colFocus)  + Difus(normalized, Lfragment, colFocus) + Ambient(), 1);
 }
