@@ -40,6 +40,7 @@ public:
         if (MyForm->objectName().isEmpty())
             MyForm->setObjectName(QString::fromUtf8("MyForm"));
         MyForm->resize(819, 726);
+        MyForm->setContextMenuPolicy(Qt::NoContextMenu);
         horizontalLayout = new QHBoxLayout(MyForm);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         widget = new MyGLWidget(MyForm);
@@ -64,11 +65,15 @@ public:
 
         radioButton_2 = new QRadioButton(MyForm);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+        radioButton_2->setFocusPolicy(Qt::NoFocus);
+        radioButton_2->setChecked(true);
 
         verticalLayout_2->addWidget(radioButton_2);
 
         radioButton = new QRadioButton(MyForm);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
+        radioButton->setFocusPolicy(Qt::NoFocus);
+        radioButton->setContextMenuPolicy(Qt::DefaultContextMenu);
 
         verticalLayout_2->addWidget(radioButton);
 
@@ -97,6 +102,8 @@ public:
         QObject::connect(pushButton, SIGNAL(clicked()), MyForm, SLOT(close()));
         QObject::connect(radioButton_2, SIGNAL(clicked()), widget, SLOT(setOpticaPrespectiva()));
         QObject::connect(radioButton, SIGNAL(clicked()), widget, SLOT(setOpticaOrtogonal()));
+        QObject::connect(widget, SIGNAL(opticaPrespectiva()), radioButton_2, SLOT(animateClick()));
+        QObject::connect(widget, SIGNAL(opticaOrtogonal()), radioButton, SLOT(animateClick()));
 
         QMetaObject::connectSlotsByName(MyForm);
     } // setupUi

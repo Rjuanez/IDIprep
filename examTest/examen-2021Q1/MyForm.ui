@@ -10,6 +10,9 @@
     <height>726</height>
    </rect>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
   <property name="windowTitle">
    <string>IDI-Lab</string>
   </property>
@@ -43,13 +46,25 @@
        </item>
        <item>
         <widget class="QRadioButton" name="radioButton_2">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
           <string>Prespectiva</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="radioButton">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::DefaultContextMenu</enum>
+         </property>
          <property name="text">
           <string>Ortogonal</string>
          </property>
