@@ -207,7 +207,26 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event) {
     break;
 	}
   case Qt::Key_R: {
-      // ...
+      angleY = 0.65;
+      angleX = -1.2;
+      rotacion = 0;
+      posPatri = 1;
+      cubosActivados = true;
+      colFocusGroc = false;
+      if (colFocusGroc){
+          colFoc = glm::vec3(1,1,0);
+          ExamGLWidget::enviaColFocus();
+      }
+      else {
+          colFoc = glm::vec3(1,1,1);
+          ExamGLWidget::enviaColFocus();
+      }
+      camPlanta = false;
+      if (camPlanta) emit opticaOrtogonal();
+      else emit opticaPrespectiva();
+      viewTransform();
+      projectTransform();
+      
     break;
 	}
   default: ExamGLWidget::keyPressEvent(event); break;
