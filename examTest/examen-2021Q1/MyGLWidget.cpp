@@ -70,6 +70,10 @@ void MyGLWidget::paintGL ()   // Mètode que has de modificar
     
     modelTransformCub (3, M_PI/3);
     glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    glBindVertexArray (VAO_Patr);
+    modelTransformPatricio ();
+    glDrawArrays(GL_TRIANGLES, 0, patr.faces().size()*3);
 }
 
 void MyGLWidget::modelTransformCub (float escala, float angle) 
@@ -89,7 +93,13 @@ void MyGLWidget::modelTransformCub (float escala, float angle)
 
 void MyGLWidget::modelTransformPatricio ()    // Mètode que has de modificar
 {
-  ExamGLWidget::modelTransformPatricio ();
+  //ExamGLWidget::modelTransformPatricio ();
+    TG = glm::mat4(1.f);
+    TG = glm::translate(TG, glm::(5,0.0,0.0));
+    TG = glm::scale(TG, glm::vec3 (escala*2, escala*2, escala*2));
+    TG = glm::translate(TG, -centreBasePat);
+    
+    glUniformMatrix4fv (transLoc, 1, GL_FALSE, &TG[0][0]);
 }
 
 void MyGLWidget::viewTransform ()    // Mètode que has de modificar
