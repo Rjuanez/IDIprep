@@ -51,14 +51,37 @@ MyGLWidget::~MyGLWidget() {
 
 void MyGLWidget::paintGL ()   // Mètode que has de modificar
 {
-  ExamGLWidget::paintGL();
+  //ExamGLWidget::paintGL();
+    // Esborrem el frame-buffer i el depth-buffer
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    // Pintem el terra
+    glBindVertexArray (VAO_Terra);
+    modelTransformTerra ();
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    
+    // Pintem el cub
+    glBindVertexArray(VAO_Cub);
+    modelTransformCub (2.0, 0.0);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    modelTransformCub (2.5, M_PI/2);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
 void MyGLWidget::modelTransformCub (float escala, float angle) 
 {
-  ExamGLWidget::modelTransformCub (1.0, 0.0);
+  //ExamGLWidget::modelTransformCub (1.0, 0.0);
   // En aquest mètode has de substituir aquest codi per construir la 
   // transformació geomètrica (TG) del cub usant els paràmetres adientment
+    TG = glm::mat4(1.f);
+    TG = glm::translate(TG, glm::vec3 (5, 0.0, 0.0));
+    if (angle > 0.0) {
+        TG = glm::rotate(TG, angle, glm::vec3 (0.0, 1.0, 0.0))
+        TG = glm::translate(TG, glm::vec3 (-5, 0.0, 0.0));
+    }
+    TG = glm::scale(TG, glm::vec3 (escala, escala, escala));
+    glUniformMatrix4fv (transLoc, 1, GL_FALSE, &TG[0][0])
 }
 
 void MyGLWidget::modelTransformPatricio ()    // Mètode que has de modificar
