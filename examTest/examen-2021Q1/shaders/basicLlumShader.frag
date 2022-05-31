@@ -11,7 +11,7 @@ out vec4 FragColor;
 
 // Valors per als components que necessitem dels focus de llum
 vec3 llumAmbient = vec3(0.2, 0.2, 0.2);
-vec3 posFocus = vec3(1, 1, 1);
+vec3 posFocus = vec3(0, 0, 0);
 
 uniform mat4 proj;
 uniform mat4 view;
