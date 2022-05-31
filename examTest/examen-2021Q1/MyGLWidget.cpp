@@ -238,7 +238,7 @@ void MyGLWidget::resizeGL (int w, int h) {
       projectTransform();
 }
 
-vodi MyGLWidget::iniEscena() {
+void MyGLWidget::iniEscena() {
     ExamGLWidget::iniEscena();
     left = -radiEsc;
     right = radiEsc;
